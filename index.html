@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11 Emulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Desktop -->
+    <div class="desktop" id="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="recycle-bin">
+                <i class="fas fa-trash"></i>
+                <span>Papelera de reciclaje</span>
+            </div>
+            <div class="desktop-icon" data-app="this-pc">
+                <i class="fas fa-desktop"></i>
+                <span>Este equipo</span>
+            </div>
+            <div class="desktop-icon" data-app="edge">
+                <i class="fab fa-edge"></i>
+                <span>Microsoft Edge</span>
+            </div>
+            <div class="desktop-icon" data-app="notepad">
+                <i class="fas fa-file-alt"></i>
+                <span>Bloc de notas</span>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div class="context-menu" id="contextMenu">
+            <div class="context-item">
+                <i class="fas fa-sync-alt"></i>
+                <span>Actualizar</span>
+            </div>
+            <div class="context-divider"></div>
+            <div class="context-item">
+                <i class="fas fa-sort"></i>
+                <span>Ordenar por</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="context-item">
+                <i class="fas fa-eye"></i>
+                <span>Ver</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="context-divider"></div>
+            <div class="context-item">
+                <i class="fas fa-plus"></i>
+                <span>Nuevo</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="context-divider"></div>
+            <div class="context-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>Personalizar</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Windows Container -->
+    <div class="windows-container" id="windowsContainer"></div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <div class="taskbar-left">
+            <button class="start-button" id="startButton">
+                <i class="fab fa-windows"></i>
+            </button>
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="task-view-button">
+                <i class="fas fa-th-large"></i>
+            </button>
+            <button class="widgets-button">
+                <i class="fas fa-cloud-sun"></i>
+            </button>
+        </div>
+        
+        <div class="taskbar-center">
+            <div class="taskbar-apps" id="taskbarApps">
+                <div class="taskbar-app active" data-app="file-explorer">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <div class="taskbar-app" data-app="edge">
+                    <i class="fab fa-edge"></i>
+                </div>
+                <div class="taskbar-app" data-app="store">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="taskbar-right">
+            <div class="system-tray">
+                <div class="tray-icon">
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+                <div class="tray-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="tray-icon">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <div class="tray-icon">
+                    <i class="fas fa-battery-three-quarters"></i>
+                </div>
+            </div>
+            <div class="clock-area" id="clockArea">
+                <div class="time" id="time">12:00</div>
+                <div class="date" id="date">1/1/2024</div>
+            </div>
+            <button class="notifications-button">
+                <i class="fas fa-comment-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div class="start-menu" id="startMenu">
+        <div class="start-header">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="username">Usuario</span>
+            </div>
+        </div>
+        
+        <div class="start-content">
+            <div class="pinned-section">
+                <h3>Ancladas</h3>
+                <div class="pinned-apps">
+                    <div class="pinned-app" data-app="edge">
+                        <div class="app-icon">
+                            <i class="fab fa-edge"></i>
+                        </div>
+                        <span>Microsoft Edge</span>
+                    </div>
+                    <div class="pinned-app" data-app="word">
+                        <div class="app-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <span>Microsoft Word</span>
+                    </div>
+                    <div class="pinned-app" data-app="excel">
+                        <div class="app-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <span>Microsoft Excel</span>
+                    </div>
+                    <div class="pinned-app" data-app="powerpoint">
+                        <div class="app-icon">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <span>PowerPoint</span>
+                    </div>
+                    <div class="pinned-app" data-app="calculator">
+                        <div class="app-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <span>Calculadora</span>
+                    </div>
+                    <div class="pinned-app" data-app="notepad">
+                        <div class="app-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <span>Bloc de notas</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recommended-section">
+                <h3>Recomendadas</h3>
+                <div class="recommended-items">
+                    <div class="recommended-item">
+                        <i class="fas fa-file"></i>
+                        <div class="item-info">
+                            <span class="item-name">Documento.docx</span>
+                            <span class="item-desc">Hace 2 horas</span>
+                        </div>
+                    </div>
+                    <div class="recommended-item">
+                        <i class="fas fa-image"></i>
+                        <div class="item-info">
+                            <span class="item-name">Captura.png</span>
+                            <span class="item-desc">Ayer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="start-footer">
+            <button class="power-button" id="powerButton">
+                <i class="fas fa-power-off"></i>
+            </button>
+            <button class="all-apps-button">
+                Todas las aplicaciones
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Power Menu -->
+    <div class="power-menu" id="powerMenu">
+        <div class="power-option">
+            <i class="fas fa-moon"></i>
+            <span>Suspender</span>
+        </div>
+        <div class="power-option">
+            <i class="fas fa-redo"></i>
+            <span>Reiniciar</span>
+        </div>
+        <div class="power-option">
+            <i class="fas fa-power-off"></i>
+            <span>Apagar</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
